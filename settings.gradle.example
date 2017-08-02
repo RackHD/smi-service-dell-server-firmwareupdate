@@ -1,0 +1,4 @@
+include ':commons-model'
+include ':adapter-server'
+project(':commons-model').projectDir = new File (settingsDir, '../commons-model')
+project(':adapter-server').projectDir = new File (settingsDir, '../adapter-server')
