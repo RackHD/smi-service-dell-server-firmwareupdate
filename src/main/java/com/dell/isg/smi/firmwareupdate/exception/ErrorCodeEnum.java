@@ -10,7 +10,8 @@ import com.dell.isg.smi.commons.elm.messaging.IMessageEnum;
  *
  */
 public enum ErrorCodeEnum implements IMessageEnum {
-	ENUM_INACCESSIBLE_CATALOG("ENUM_INACCESSIBLE_CATALOG", 300001);
+	ENUM_INACCESSIBLE_CATALOG("ENUM_INACCESSIBLE_CATALOG", 300001),
+	ENUM_INACCESSIBLE_IP("ENUM_INACCESSIBLE_IP", 300002);
 	
 	private Integer id;
 	private String value;
