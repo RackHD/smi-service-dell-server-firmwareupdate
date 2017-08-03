@@ -34,7 +34,7 @@ import com.dell.cm.updateinformationmodel.DCMSystemInstance;
 import com.dell.cm.updateinformationmodel.DCMSystemInstanceCollection;
 import com.dell.cm.updateinformationmodel.DCMUpdateableComponent;
 import com.dell.cm.updateinformationmodel.DCMVersionInformation;
-import com.dell.isg.smi.commons.elm.exception.InvalidArgumentsException;
+import com.dell.isg.smi.commons.elm.exception.RuntimeCoreException;
 import com.dell.isg.smi.commons.model.server.JobStatus;
 import com.dell.isg.smi.commons.model.server.firmware.ApplicableUpdate;
 import com.dell.isg.smi.commons.model.server.firmware.ComputerSystem;
@@ -48,6 +48,7 @@ import com.dell.isg.smi.firmwareupdate.adapter.util.Utility;
 import com.dell.isg.smi.firmwareupdate.common.Credentials;
 import com.dell.isg.smi.firmwareupdate.common.FirmwareConstants;
 import com.dell.isg.smi.firmwareupdate.controller.model.UpdateRequest;
+import com.dell.isg.smi.firmwareupdate.exception.ErrorCodeEnum;
 import com.dell.sm.downloader.DSMAuthenticationParameters;
 import com.dell.sm.downloader.DSMFTPDownloader;
 import com.dell.sm.downloader.DSMProxy;
@@ -163,7 +164,7 @@ public class DuecAdapterImpl implements IDuecAdapter {
 
 		Collection<DCMSystemInstance> sysInstanceCollection = Utility.getSystemInstanceCollection(mSystems);
 		if (sysInstanceCollection == null || sysInstanceCollection.isEmpty()) {
-			InvalidArgumentsException badIpExp = new InvalidArgumentsException(com.dell.isg.smi.commons.elm.model.EnumErrorCode.ENUM_INACCESSIBLE_IP, "serverAddress");
+			RuntimeCoreException badIpExp = new RuntimeCoreException(ErrorCodeEnum.ENUM_INACCESSIBLE_IP);
 			throw badIpExp;
 		}
 		HashMap<String, HashMap<DCMVersionInformation, DCMUpdateInformation>> applicableUpdates = null;
@@ -174,8 +175,7 @@ public class DuecAdapterImpl implements IDuecAdapter {
 		} catch (Exception exp) {
 			logger.error(exp.getStackTrace().toString());
 			// throw new Exception("Error parsing catalog xml file");
-			InvalidArgumentsException badCatExp = new InvalidArgumentsException(com.dell.isg.smi.firmwareupdate.exception.ErrorCodeEnum.ENUM_INACCESSIBLE_CATALOG,
-					"catalogPath", exp);
+			RuntimeCoreException badCatExp = new RuntimeCoreException(ErrorCodeEnum.ENUM_INACCESSIBLE_CATALOG);
 			throw badCatExp;
 		}
 

@@ -80,12 +80,12 @@ dependencyManagement {
 
 
 dependencies {
-	compile 'com.dell.isg:DUEC:1.2-SNAPSHOT'
-	compile 'com.dell.isg.smi:wsmanlib:1.0-SNAPSHOT'
-	compile 'com.dell.isg.smi:wsmanclient:1.0.28'
-	compile 'com.dell.isg.smi:commons-elm:1.0-SNAPSHOT'
-	compile 'com.dell.isg.smi:commons-model:1.0-SNAPSHOT'
-	compile 'com.dell.isg.smi:adapter-server:1.0-SNAPSHOT'
+	compile 'com.dell.isg.smi:duec:1.0.13'
+	compile 'com.dell.isg.smi:wsmanlib:1.0.51'
+	compile 'com.dell.isg.smi:wsmanclient:1.0.37'
+	compile 'com.dell.isg.smi:commons-elm:1.0.76'
+	compile 'com.dell.isg.smi:commons-model:1.0.89'
+	compile 'com.dell.isg.smi:adapter-server:1.0.55'
 	compile "org.springframework.boot:spring-boot-starter-web"
 	compile "org.springframework.boot:spring-boot-starter-tomcat"
     compile "org.springframework.boot:spring-boot-starter-actuator"
