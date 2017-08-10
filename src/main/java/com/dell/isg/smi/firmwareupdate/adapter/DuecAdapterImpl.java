@@ -155,7 +155,7 @@ public class DuecAdapterImpl implements IDuecAdapter {
 
 		dcmInventory = new DCMInventory();
 		DCMMultiSystemInventory mSystems = dcmInventory.createEmptyMultiSystemInventory();
-		//dcmInventory.addWSInventory(cred.getAddress(), auth, mSystems);
+		dcmInventory.addWSInventory(cred.getAddress(), auth, mSystems);
 
 		DCMCatalog catalog = new DCMCatalog();
 		DCMManifest manifest = null;
