@@ -2,6 +2,8 @@ Service to compare and apply firmware updates for a Dell server using a reposito
 
 [![Quality Gate](http://100.68.126.201:9000/api/badges/gate?key=org.sonarqube:service-server-firmwareupdate)](http://100.68.126.201:9000/dashboard/index/org.sonarqube:service-server-firmwareupdate)
 
+Copyright © 2017 Dell Inc. or its subsidiaries.  All Rights Reserved. 
+
 ### Purpose
 For use with Dell 11th Generation and newer servers. 
 - Download the catalog from ftp.dell.com to a local share
@@ -121,6 +123,15 @@ b. Test it out by making a http request to port 5000  http://<<your callback tar
 TODO:
 
 ---
+
+
+### Licensing
+
+Licensed under the Apache License, Version 2.0 (the “License”); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+
+RackHD is a Trademark of Dell EMC
 
 ### Support
 Slack Channel: codecommunity.slack.com
