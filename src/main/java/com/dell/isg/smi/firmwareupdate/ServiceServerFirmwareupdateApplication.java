@@ -5,6 +5,7 @@ package com.dell.isg.smi.firmwareupdate;
 
 import static springfox.documentation.builders.PathSelectors.regex;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration;
@@ -15,7 +16,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 import springfox.documentation.builders.ApiInfoBuilder;
-import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -31,15 +31,12 @@ public class ServiceServerFirmwareupdateApplication {
         SpringApplication.run(ServiceServerFirmwareupdateApplication.class, args);
     }
 
+	@Autowired
+	private BuildInfo buildInfo;
 
     @Bean
     public Docket newsApi() {
-        return new Docket(DocumentationType.SWAGGER_2).groupName("serverFirmware").apiInfo(apiInfo()).select().paths(regex("/api.*")).build();
-    }
-
-
-    private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("SMI Microservice :  Dell Update Service").description("DUSE Microservice updates firmware on Dell PowerEdge server using industry standard WS-Management - WSMAN Protocol").termsOfServiceUrl("http://www.dell.com/smi/server/firmwareupdate").license("Dell SMI License Version 1.0").licenseUrl("www.dell.com/smi").version("1.0 dev").build();
+        return new Docket(DocumentationType.SWAGGER_2).groupName("serverFirmware").apiInfo(new ApiInfoBuilder().title("SMI Microservice :  Dell Firware Update Service").version(buildInfo.toString()).build()).select().paths(regex("/api.*")).build();
     }
 
 }
