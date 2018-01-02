@@ -10,23 +10,11 @@ package com.dell.isg.smi.firmwareupdate.controller.model;
  * @author rahman.muhammad
  *
  */
-public class DupRequest {
+public class DupRequest extends ObmRequestBase {
 
-    private String serverAddress;
     private String componentId;
     private String path;
     private String fileName;
-
-
-    public String getServerAddress() {
-        return serverAddress;
-    }
-
-
-    public void setServerAddress(String serverAddress) {
-        this.serverAddress = serverAddress;
-    }
-
 
     public String getComponentId() {
         return componentId;

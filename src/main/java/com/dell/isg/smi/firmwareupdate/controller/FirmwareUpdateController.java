@@ -409,10 +409,21 @@ public class FirmwareUpdateController implements IFirmwareUpdateController {
 		} else if (isInvalid(request.getPath())) {
 			InvalidArgumentsException exp = new InvalidArgumentsException("path");
 			throw exp;
+		} else if (isInvalid(request.getUserName())){
+			InvalidArgumentsException exp = new InvalidArgumentsException("userName");
+			throw exp;
+			
+		} else if (isInvalid(request.getPassword())){
+			InvalidArgumentsException exp = new InvalidArgumentsException("Password");
+			throw exp;
+			
 		}
-
-		Credentials cred = CredentialsConstant.getCredentials();
-		cred.setAddress(request.getServerAddress());
+		
+		 Credentials cred = new Credentials();
+		 cred.setAddress(request.getServerAddress());
+		 cred.setUserName(request.getUserName());
+		 cred.setPassword(request.getPassword());
+		 
 		try {
 			return firmwareService.updateDupFirmware(request.getServerAddress(), request.getComponentId(),
 					request.getPath(), request.getFileName(), cred);
